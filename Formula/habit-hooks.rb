@@ -3,8 +3,8 @@ class HabitHooks < Formula
 
   desc "Structural code-smell coaching for AI agents"
   homepage "https://github.com/habit-hooks/habit-hooks"
-  url "https://files.pythonhosted.org/packages/e8/9b/95ff14339e8a4be5579f1370ef43d02012eb9864689e3f2486f3d0507e9b/habit_hooks-1.0.1.tar.gz"
-  sha256 "6cec760ceaf15ccc299f728facdc32a29a4dfee876757f0b53995fc0393a71fd"
+  url "https://files.pythonhosted.org/packages/33/5a/72a12ed4271cf3972c49e75e9d4537ceb7a58715ec9ee6853ccaddcbebcc/habit_hooks-1.0.2.tar.gz"
+  sha256 "2b882d33bd1dd9728df9e830cdeebb158b5830deec3acbd9c26999afe56fe657"
   license "MIT"
 
   livecheck do
@@ -12,18 +12,11 @@ class HabitHooks < Formula
     strategy :pypi
   end
 
-  bottle do
-    root_url "https://github.com/habit-hooks/homebrew-tap/releases/download/habit-hooks-1.0.1"
-    sha256 cellar: :any, arm64_tahoe:  "ac621a6e507817ece4cdfa36afb8fa9c75412c820973a43928143fc2aad1e2b8"
-    sha256 cellar: :any, x86_64_linux: "54829b3c0116c8f07a8069006712329a7a65caa91014515b00ee401105822eae"
-  end
-
-  depends_on "rust" => :build
   depends_on "python@3.13"
 
-  resource "annotated-types" do
-    url "https://files.pythonhosted.org/packages/ee/67/531ea369ba64dcff5ec9c3402f9f51bf748cec26dde048a2f973a4eea7f5/annotated_types-0.7.0.tar.gz"
-    sha256 "aff07c09a53a08bc8cfccb9c85b05f1aa9a2a6f23728d790723543408344ce89"
+  resource "attrs" do
+    url "https://files.pythonhosted.org/packages/9a/8e/82a0fe20a541c03148528be8cac2408564a6c9a0cc7e9171802bc1d26985/attrs-26.1.0.tar.gz"
+    sha256 "d03ceb89cb322a8fd706d4fb91940737b6642aa36998fe130a9bc96c985eff32"
   end
 
   resource "habit-hooks-generic" do
@@ -44,26 +37,6 @@ class HabitHooks < Formula
   resource "pathspec" do
     url "https://files.pythonhosted.org/packages/5a/82/42f767fc1c1143d6fd36efb827202a2d997a375e160a71eb2888a925aac1/pathspec-1.1.1.tar.gz"
     sha256 "17db5ecd524104a120e173814c90367a96a98d07c45b2e10c2f3919fff91bf5a"
-  end
-
-  resource "pydantic" do
-    url "https://files.pythonhosted.org/packages/18/a5/b60d21ac674192f8ab0ba4e9fd860690f9b4a6e51ca5df118733b487d8d6/pydantic-2.13.4.tar.gz"
-    sha256 "c40756b57adaa8b1efeeced5c196f3f3b7c435f90e84ea7f443901bec8099ef6"
-  end
-
-  resource "pydantic-core" do
-    url "https://files.pythonhosted.org/packages/9d/56/921726b776ace8d8f5db44c4ef961006580d91dc52b803c489fafd1aa249/pydantic_core-2.46.4.tar.gz"
-    sha256 "62f875393d7f270851f20523dd2e29f082bcc82292d66db2b64ea71f64b6e1c1"
-  end
-
-  resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/f6/cc/6253133b5bb138fc3306cebfbda2c520f545d36b5be2c7255cc528bb45d6/typing_extensions-4.16.0.tar.gz"
-    sha256 "dc983d19a509c94dba722ee6abd33940f7c05a89e243c47e907eb4db6f1a43e5"
-  end
-
-  resource "typing-inspection" do
-    url "https://files.pythonhosted.org/packages/55/e3/70399cb7dd41c10ac53367ae42139cf4b1ca5f36bb3dc6c9d33acdb43655/typing_inspection-0.4.2.tar.gz"
-    sha256 "ba561c48a67c5958007083d386c3295464928b01faa735ab8547c5692e87f464"
   end
 
   def install
