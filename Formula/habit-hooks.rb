@@ -7,6 +7,11 @@ class HabitHooks < Formula
   sha256 "69b9670c82e29533e8cedcd935c484c296446640c584fa6069e0181f0772376a"
   license "MIT"
 
+  livecheck do
+    url :stable
+    strategy :pypi
+  end
+
   depends_on "rust" => :build
   depends_on "python@3.13"
 
