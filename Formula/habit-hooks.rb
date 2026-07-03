@@ -12,6 +12,12 @@ class HabitHooks < Formula
     strategy :pypi
   end
 
+  bottle do
+    root_url "https://github.com/habit-hooks/homebrew-tap/releases/download/habit-hooks-1.0.1"
+    sha256 cellar: :any, arm64_tahoe:  "ac621a6e507817ece4cdfa36afb8fa9c75412c820973a43928143fc2aad1e2b8"
+    sha256 cellar: :any, x86_64_linux: "54829b3c0116c8f07a8069006712329a7a65caa91014515b00ee401105822eae"
+  end
+
   depends_on "rust" => :build
   depends_on "python@3.13"
 
