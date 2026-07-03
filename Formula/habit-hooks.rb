@@ -3,8 +3,8 @@ class HabitHooks < Formula
 
   desc "Structural code-smell coaching for AI agents"
   homepage "https://github.com/habit-hooks/habit-hooks"
-  url "https://files.pythonhosted.org/packages/1a/f2/bab77b3dfdfe91ba5225f6c5d0830b9bb55443d47bed23312693b1fa6781/habit_hooks-1.0.0.tar.gz"
-  sha256 "69b9670c82e29533e8cedcd935c484c296446640c584fa6069e0181f0772376a"
+  url "https://files.pythonhosted.org/packages/e8/9b/95ff14339e8a4be5579f1370ef43d02012eb9864689e3f2486f3d0507e9b/habit_hooks-1.0.1.tar.gz"
+  sha256 "6cec760ceaf15ccc299f728facdc32a29a4dfee876757f0b53995fc0393a71fd"
   license "MIT"
 
   livecheck do
@@ -21,8 +21,8 @@ class HabitHooks < Formula
   end
 
   resource "habit-hooks-generic" do
-    url "https://files.pythonhosted.org/packages/72/8c/6d4e85f8bb4d9746331b9196591908715bfaa0c2c73d29f335f4700a090f/habit_hooks_generic-1.0.0.tar.gz"
-    sha256 "cfe5056cd07e08611c657cc434b21efb363fd4bf584c2f7bb32c67c1b8a7560a"
+    url "https://files.pythonhosted.org/packages/3d/79/8cd6e803b769e0f6ff2a03e77d6f2a12bd5ed4bd649fd744713c0e04ba81/habit_hooks_generic-1.0.1.tar.gz"
+    sha256 "a7751eab2fc41ff11ccab7268ccbb38c89b844102314f720cf63ae27b4bdd1c3"
   end
 
   resource "jinja2" do
