@@ -3,21 +3,13 @@ class HabitHooks < Formula
 
   desc "Structural code-smell coaching for AI agents"
   homepage "https://github.com/habit-hooks/habit-hooks"
-  url "https://files.pythonhosted.org/packages/33/5a/72a12ed4271cf3972c49e75e9d4537ceb7a58715ec9ee6853ccaddcbebcc/habit_hooks-1.0.2.tar.gz"
-  sha256 "2b882d33bd1dd9728df9e830cdeebb158b5830deec3acbd9c26999afe56fe657"
+  url "https://files.pythonhosted.org/packages/cd/df/cfc89468e51be615fc7f0373625a4f967164fba4848d16d4b18ea245bc53/habit_hooks-1.1.0.tar.gz"
+  sha256 "aa486e0c884ebbd4fd9551f39ff4729ed086162c22cd973cf355999da511adb0"
   license "MIT"
 
   livecheck do
     url :stable
     strategy :pypi
-  end
-
-  bottle do
-    root_url "https://github.com/habit-hooks/homebrew-tap/releases/download/habit-hooks-1.0.2"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5d29c9659e89691577db8121e4eb32dbea26bae091743df059dcc03a9457dfe8"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "30923fe367579b8b556d4bce80abd0d55a8081c340ed3876a6c0891b0de22ffb"
-    sha256 cellar: :any_skip_relocation, sequoia:       "5c57eb0b4f0c6340d6b4b10a428c21ef8669ea00ab904954daefa7446bc9d325"
-    sha256 cellar: :any,                 x86_64_linux:  "ee879ebd18b5f9ac200dfae1dc59fdc66f2ca1ac131bf07733312a64034c26d4"
   end
 
   depends_on "python@3.13"
@@ -28,8 +20,8 @@ class HabitHooks < Formula
   end
 
   resource "habit-hooks-generic" do
-    url "https://files.pythonhosted.org/packages/3d/79/8cd6e803b769e0f6ff2a03e77d6f2a12bd5ed4bd649fd744713c0e04ba81/habit_hooks_generic-1.0.1.tar.gz"
-    sha256 "a7751eab2fc41ff11ccab7268ccbb38c89b844102314f720cf63ae27b4bdd1c3"
+    url "https://files.pythonhosted.org/packages/2d/16/e6ab4353a856eeec99de23afaeba788421ad351def70fc6f76c306b16b2e/habit_hooks_generic-1.1.0.tar.gz"
+    sha256 "ebd4521b3ce406f79daf353e227edd0bb39448e542c08fa0392816001a5467f8"
   end
 
   resource "jinja2" do
