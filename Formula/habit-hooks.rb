@@ -3,21 +3,13 @@ class HabitHooks < Formula
 
   desc "Structural code-smell coaching for AI agents"
   homepage "https://github.com/habit-hooks/habit-hooks"
-  url "https://files.pythonhosted.org/packages/cd/df/cfc89468e51be615fc7f0373625a4f967164fba4848d16d4b18ea245bc53/habit_hooks-1.1.0.tar.gz"
-  sha256 "aa486e0c884ebbd4fd9551f39ff4729ed086162c22cd973cf355999da511adb0"
+  url "https://files.pythonhosted.org/packages/ab/9f/5dc2c642950785c9787804b9075383986222c426549432f0f0ec83266287/habit_hooks-1.2.1.tar.gz"
+  sha256 "72a610aebff39e68bd1f56d61868e68b4cab01d056056604940206c561c406af"
   license "MIT"
 
   livecheck do
     url :stable
     strategy :pypi
-  end
-
-  bottle do
-    root_url "https://github.com/habit-hooks/homebrew-tap/releases/download/habit-hooks-1.1.0"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7555df797a6f1eae2fe0058d307f076da3e1012e3ee0a916f2fc6d554d231d90"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1ad24300c78914338f17a40adaa06cf836edd224f411e57266b608c0aae60b62"
-    sha256 cellar: :any_skip_relocation, sequoia:       "a1eee5239f6b032ccf3fa2f5a36a2bdaa48521cc021230bc69ca98b7420ce1d5"
-    sha256 cellar: :any,                 x86_64_linux:  "9aafbcdec80269baf45aae4d6e3b5e4d672bf616f72c988923054a4482a70f5a"
   end
 
   depends_on "python@3.13"
@@ -28,8 +20,23 @@ class HabitHooks < Formula
   end
 
   resource "habit-hooks-generic" do
-    url "https://files.pythonhosted.org/packages/2d/16/e6ab4353a856eeec99de23afaeba788421ad351def70fc6f76c306b16b2e/habit_hooks_generic-1.1.0.tar.gz"
-    sha256 "ebd4521b3ce406f79daf353e227edd0bb39448e542c08fa0392816001a5467f8"
+    url "https://files.pythonhosted.org/packages/7b/c7/eaf9b76096226f2eaa9f13ee2bf295424908d839e2d8de98bbff40dc4396/habit_hooks_generic-1.2.1.tar.gz"
+    sha256 "9449250704af3ab0fc1e692befdd2e7f94c5ebef6a14e6c33b26bd6d2ed19d24"
+  end
+
+  resource "habit-hooks-php" do
+    url "https://files.pythonhosted.org/packages/63/4c/3d8d5b0cbe476d927bfc7cc7c1f884b0ab2a72370f5328ce3f8217b81287/habit_hooks_php-1.2.1.tar.gz"
+    sha256 "3aab4dcb431b57c7601a17ca67d7e8876eacaea6fca287ebf8ea0ece92a7bfbe"
+  end
+
+  resource "habit-hooks-python" do
+    url "https://files.pythonhosted.org/packages/69/85/2d310d8cd44daac7e289f8430d98baf4f15fb4d18f9d8f575d5962f51eba/habit_hooks_python-1.2.1.tar.gz"
+    sha256 "cbd974445db8be3a9f88cb3e4d6cd2a3a27d91bff828a32b4244d26529f30682"
+  end
+
+  resource "habit-hooks-typescript" do
+    url "https://files.pythonhosted.org/packages/1b/9f/73dd1b5d3c1a993d5658f1187897adece9eceff886c7dd0df1a5020fdaf7/habit_hooks_typescript-1.2.1.tar.gz"
+    sha256 "843bebd5fe5ba3cbb7dec1447ecaed67a7e7d607bd4b3ff535903adc0f19c827"
   end
 
   resource "jinja2" do
@@ -52,6 +59,17 @@ class HabitHooks < Formula
   end
 
   test do
+    # Every language plugin ships with the formula, so `brew install` alone is a
+    # working setup. Installing one by hand into the Cellar venv was the
+    # workaround this replaces, and it does not survive the next upgrade.
+    (testpath/"plugins.py").write <<~PYTHON
+      from importlib.metadata import entry_points
+
+      print(sorted(plugin.name for plugin in entry_points(group="habit_hooks.plugins")))
+    PYTHON
+    assert_equal "['generic', 'php', 'python', 'typescript']\n",
+                 shell_output("#{libexec}/bin/python #{testpath}/plugins.py")
+
     (testpath/".habit-hooks").mkpath
     (testpath/".habit-hooks/config.toml").write <<~TOML
       plugins = ["generic"]
