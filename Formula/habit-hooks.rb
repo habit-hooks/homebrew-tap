@@ -12,6 +12,14 @@ class HabitHooks < Formula
     strategy :pypi
   end
 
+  bottle do
+    root_url "https://github.com/habit-hooks/homebrew-tap/releases/download/habit-hooks-1.3.1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0ffaf8694ea016d260958c9e4ab030b8a8911303f5b9c19bbdeec0d7c0324a44"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fa55ca3da6da567fbc87c109b4a5394334eb5a992e2f3da5291af1f17b9432df"
+    sha256 cellar: :any_skip_relocation, sequoia:       "efe65d8ac95651dec0eff6d71cc683d6822eb73bc3cfd22cc3aae95b170808a0"
+    sha256 cellar: :any,                 x86_64_linux:  "a50ddeefd2a676a1576ea0189d70ad367b0be7a7dcfa92d5c9aa82de05a7a569"
+  end
+
   depends_on "python@3.13"
 
   resource "attrs" do
