@@ -3,21 +3,13 @@ class HabitHooks < Formula
 
   desc "Structural code-smell coaching for AI agents"
   homepage "https://github.com/habit-hooks/habit-hooks"
-  url "https://files.pythonhosted.org/packages/13/dd/011ebd3af2e5835329fda3b39cc268ad8b94b86e4b4126f283af4ab483aa/habit_hooks-1.4.0.tar.gz"
-  sha256 "a18215d6eb8380ddb152cdd3c02a839bb3c84b2fad0254d7060883286b56584b"
+  url "https://files.pythonhosted.org/packages/d1/85/5c9dbc0c042e7a1afb6a7c0d356d6eaa6276e4a73dc26146d6fb7422f45d/habit_hooks-1.5.0.tar.gz"
+  sha256 "1e06ae07796ab0015afd3b13c53f3a8d92ac639fcdc04af82c8a9a4d6dfb32d3"
   license "MIT"
 
   livecheck do
     url :stable
     strategy :pypi
-  end
-
-  bottle do
-    root_url "https://github.com/habit-hooks/homebrew-tap/releases/download/habit-hooks-1.4.0"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "769b4810608521979c80d1386d7bce561d3b15f9da03e1a8340cd12913be4585"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "89e9b77eaa6a53663484c5e09b5f4d5e41fe216c01bb7e76fa61a4cd1acd3f44"
-    sha256 cellar: :any_skip_relocation, sequoia:       "4bde1368f0afab432c3beaeaf98501395946d02d9908e17737b1f696a6ca4c51"
-    sha256 cellar: :any,                 x86_64_linux:  "a8c2ae58fd8bf61dd2800d40a2c37e95b8ce4d24bff51dfd0461f0207e90119b"
   end
 
   depends_on "python@3.13"
@@ -28,28 +20,33 @@ class HabitHooks < Formula
   end
 
   resource "habit-hooks-generic" do
-    url "https://files.pythonhosted.org/packages/0b/4a/7e027f85f96abf6ca8fecc9296b3e731799a9ffded1be358e1adbea0adab/habit_hooks_generic-1.4.0.tar.gz"
-    sha256 "fce66b2215bff76b38b0aebffcbd7b93522c350ed7b7690b03d18088ed09eeb8"
+    url "https://files.pythonhosted.org/packages/3b/06/08f357aa4bc8958dada5991c02467a9afd51b9347ae0b876f34e3ee846bf/habit_hooks_generic-1.5.0.tar.gz"
+    sha256 "ded020f88a96fd2f7b23d79937b33f27879151b74973bb77fcf9e196b53bdbd9"
   end
 
   resource "habit-hooks-java" do
-    url "https://files.pythonhosted.org/packages/7f/9f/85f8215a23559326b905fdfa7b5cb936b6eaa88769883c14f9973d83d87c/habit_hooks_java-1.4.0.tar.gz"
-    sha256 "88ea9bf6dd549bd230b36419c965e64b075d3b03c124e3aca633b96702429054"
+    url "https://files.pythonhosted.org/packages/07/53/048f3cf992def1e5cfcf5265960f7797962aaae43ed6a47aa605659b2fe0/habit_hooks_java-1.5.0.tar.gz"
+    sha256 "b52da7bd890b3f14df4ef27f98263c37563640c69202a63fc3fe71af4cab4b78"
   end
 
   resource "habit-hooks-php" do
-    url "https://files.pythonhosted.org/packages/6d/e6/b171c39fa30ade066e51cb8e5860a692543ec3ece6466a2419c79b07e709/habit_hooks_php-1.4.0.tar.gz"
-    sha256 "52c6ed3116bac539c2bff0d7b024ece8597840268f32549688075c02b44c303d"
+    url "https://files.pythonhosted.org/packages/68/66/0d1d076cd896ba64008fd8004f7eb3240b86ceff73a578b55e9ebe7e1e72/habit_hooks_php-1.5.0.tar.gz"
+    sha256 "272cca3a4384f66bddf0623f0b25d7b671a9c31396fc51651ad458132dbd41b4"
   end
 
   resource "habit-hooks-python" do
-    url "https://files.pythonhosted.org/packages/34/7c/3b5eaad9402f07f4043941386c58f48d96315c2236501372ad3f1240f04d/habit_hooks_python-1.4.0.tar.gz"
-    sha256 "0e52f57fc4be347bb326a09c814a5553bbc88e9719abba0279997b23d8888169"
+    url "https://files.pythonhosted.org/packages/b8/a0/895638bdbdc449660f2a4117a8eefa571496b0a1905c95684fb86ff1ee78/habit_hooks_python-1.5.0.tar.gz"
+    sha256 "6d62079e2d44f4f2b886c12b2c13326876fc7907c13711a0b1b96e93b0338c9c"
+  end
+
+  resource "habit-hooks-ruby" do
+    url "https://files.pythonhosted.org/packages/42/14/fba44e3dd7efdee3623b40a0ab6f5983cb6b2ba229d6987b0f18b8a59092/habit_hooks_ruby-1.5.0.tar.gz"
+    sha256 "50ff3393bca89a3b8b094d97689f4a74424a668c5dc1416ae249d39920eac6c6"
   end
 
   resource "habit-hooks-typescript" do
-    url "https://files.pythonhosted.org/packages/84/c0/efbb5295e49d3ed6621b45b38ce4d9ecd2b2870ec2f8f7f29ebca8c81c6d/habit_hooks_typescript-1.4.0.tar.gz"
-    sha256 "82e42d3ac363f1a64e7cec6c44fc4bf8ca1b6d41b54df9aad32acf67a3557993"
+    url "https://files.pythonhosted.org/packages/ad/51/1e9e8f017d9e56a67725a45979d57c4d64df8d748ad5ddb74f18e7d85ae2/habit_hooks_typescript-1.5.0.tar.gz"
+    sha256 "70d9fe4a95ad811e4d4cfa199090194ff90d52000604e540614eb3cc733d9d2c"
   end
 
   resource "jinja2" do
@@ -80,7 +77,7 @@ class HabitHooks < Formula
 
       print(sorted(plugin.name for plugin in entry_points(group="habit_hooks.plugins")))
     PYTHON
-    assert_equal "['generic', 'java', 'php', 'python', 'typescript']\n",
+    assert_equal "['generic', 'java', 'php', 'python', 'ruby', 'typescript']\n",
                  shell_output("#{libexec}/bin/python #{testpath}/plugins.py")
 
     (testpath/".habit-hooks").mkpath
