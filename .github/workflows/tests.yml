@@ -9,6 +9,10 @@ on:
 jobs:
   test-bot:
     strategy:
+      # brew pr-pull wants a bottle from every leg, so one leg's failure must not
+      # cancel the others: they are killed mid-build and upload a half-made
+      # bottle that looks like the real thing.
+      fail-fast: false
       matrix:
         # No macos-15-intel: Homebrew dropped Intel macOS in September 2026, so
         # openssl@3 and mpdecimal have no bottles there, python@3.13 cannot be
