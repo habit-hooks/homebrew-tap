@@ -39,7 +39,14 @@ jobs:
 
       - run: brew test-bot --only-setup
 
+      # Linting the tap is one question with one answer, so it is asked once.
+      # Asked on every leg it also has to *install* shellcheck there, and a leg
+      # that cannot (the Intel runners reach no gmplib.org, so `gmp` builds from
+      # source and times out) fails before `--only-formulae` and skips its
+      # bottle — losing a platform's bottle to a lint that had already passed
+      # three times elsewhere.
       - run: brew test-bot --only-tap-syntax
+        if: matrix.os == 'ubuntu-latest'
       - run: brew test-bot --only-formulae
         if: github.event_name == 'pull_request'
 
