@@ -10,7 +10,12 @@ jobs:
   test-bot:
     strategy:
       matrix:
-        os: [ macos-15, macos-15-intel, macos-26 ]
+        # No macos-15-intel: Homebrew dropped Intel macOS in September 2026, so
+        # openssl@3 and mpdecimal have no bottles there, python@3.13 cannot be
+        # installed from one, and the bottle build fails before it starts. The
+        # leg can never pass again, and an Intel Mac builds from source whether
+        # it runs or not.
+        os: [ macos-15, macos-26 ]
         include:
           - os: ubuntu-latest
             container: ghcr.io/homebrew/brew:main
